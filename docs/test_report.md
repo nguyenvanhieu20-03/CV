@@ -10,7 +10,7 @@
 | Người thực hiện/đánh giá | QA/QC — rà soát mã nguồn, tài liệu và kiểm tra trang triển khai; chưa ghi nhận danh tính cá nhân |
 | Phạm vi | `index.html`, `assets/css/styles.css`, README, release note và cấu trúc repository |
 | Phương pháp | Rà soát tĩnh, mở trang GitHub Pages và đối chiếu mã nguồn; kiểm tra responsive bằng ảnh chụp viewport |
-| Môi trường kiểm thử | Chrome headless; viewport mục tiêu 390×2400, 820×2400 và 1440×2400 px; phiên bản trình duyệt chưa ghi nhận |
+| Môi trường kiểm thử | Microsoft Edge headless; viewport mục tiêu 390×844, 820×1180 và 1440×1000 px; phiên bản trình duyệt chưa ghi nhận |
 
 ### Quy ước trạng thái
 
@@ -48,12 +48,24 @@
 
 | Hạng mục kiểm tra | Trạng thái | Ghi chú/Minh chứng |
 |---|---|---|
-| Bố cục responsive theo kích thước màn hình | Cần cải thiện | CSS khai báo mobile-first, breakpoint từ 768px và 1280px; đã chụp trang triển khai ở 390px, 820px và 1440px. Ảnh cho thấy bố cục theo từng viewport; chưa kiểm tra trên thiết bị thật hoặc toàn bộ ma trận trình duyệt. |
+| Bố cục responsive theo kích thước màn hình | Cần cải thiện | CSS khai báo mobile-first, breakpoint từ 768px và 1280px; đã chụp bản local ở viewport 390×844, 820×1180 và 1440×1000 px. Bố cục quan sát được lần lượt là 1, 2 và 3 cột dự án; chưa kiểm tra trên thiết bị thật hoặc toàn bộ ma trận trình duyệt. |
 | Điều hướng bàn phím và trạng thái focus | Đạt | Có kiểu `:focus-visible` trong stylesheet. Chưa thực hiện kiểm thử thao tác bàn phím hoặc trình đọc màn hình. |
 | Hỗ trợ giảm chuyển động | Đạt | Có `prefers-reduced-motion: reduce` để tắt transition, animation và cuộn mượt. |
 | Khả năng đọc và tương phản màu | Cần cải thiện | Chưa đo tương phản màu hoặc đánh giá trên các thiết bị khác nhau; cần kiểm tra đặc biệt màu chữ phụ và màu thương hiệu. |
 | Ảnh và văn bản thay thế | Cần cải thiện | Ảnh đại diện có `alt`, nhưng nội dung alt dùng “Hieu” không dấu. Ảnh minh họa dự án có mô tả; chưa kiểm tra tải ảnh và hiển thị thực tế. |
 | Tương thích Chrome, Firefox, Edge, Safari và thiết bị di động | Cần cải thiện | Chưa có ma trận trình duyệt/thiết bị hoặc kết quả kiểm thử chéo. |
+
+Ảnh chụp màn hình từ Microsoft Edge headless, lưu tại `docs/screenshots/`:
+
+- [Mobile — 390×844](./screenshots/responsive-mobile.png)
+- [Tablet — 820×1180](./screenshots/responsive-tablet.png)
+- [Desktop — 1440×1000](./screenshots/responsive-desktop.png)
+
+![Ảnh kiểm thử giao diện mobile tại viewport 390×844](./screenshots/responsive-mobile.png)
+
+![Ảnh kiểm thử giao diện tablet tại viewport 820×1180](./screenshots/responsive-tablet.png)
+
+![Ảnh kiểm thử giao diện desktop tại viewport 1440×1000](./screenshots/responsive-desktop.png)
 
 ### 3.3 Khả năng vận hành, xử lý lỗi và hiệu năng cơ bản
 
@@ -92,7 +104,7 @@
 |---|---|---|
 | Hướng dẫn triển khai/chạy bằng Docker | Cần cải thiện | Trang GitHub Pages tại `https://nguyenvanhieu20-03.github.io/CV/` đã mở được; README hướng dẫn Docker nhưng chưa có kết quả Docker build/run. URL theo repository `my-cv` trả về 404. |
 | Chạy thử trên Windows, macOS và Linux | Cần cải thiện | Có hướng dẫn lệnh tương ứng trong README nhưng chưa có biên bản xác nhận chạy trên từng hệ điều hành. |
-| Bộ kiểm thử và kết quả thực thi | Cần cải thiện | Chưa thấy test suite hoặc kết quả kiểm thử chức năng, giao diện, trình duyệt và hiệu năng. |
+| Bộ kiểm thử và kết quả thực thi | Cần cải thiện | Chưa thấy test suite hoặc CI. Đã smoke test tải trang và chụp giao diện ở ba viewport; chưa kiểm thử chức năng chi tiết, trình duyệt chéo hoặc hiệu năng. |
 | Minh chứng trực quan | Cần cải thiện | Bổ sung ảnh responsive trong `docs/screenshots/`; cần tiếp tục lưu kết quả smoke test và kiểm thử trên trình duyệt/thiết bị khác. |
 | Khả năng lặp lại và bàn giao | Cần cải thiện | Có hướng dẫn cơ bản; cần bổ sung phiên bản môi trường, kết quả thực thi và quy trình triển khai đã xác minh để người nhận có thể tái lập. |
 
@@ -125,27 +137,27 @@ Sản phẩm hiện đáp ứng ở mức nền tảng cho một portfolio tĩnh
 | DOC-01 | Rà soát cấu trúc HTML/CSS và tài liệu | Đã rà soát tĩnh | `index.html`, `assets/css/styles.css`, `README.md`, `docs/RELEASENOTE.md` |
 | LIVE-01 | Mở trang GitHub Pages | Đạt trên URL `/CV/`; URL `/my-cv/` trả về 404 | [GitHub Pages CV](https://nguyenvanhieu20-03.github.io/CV/); [repository my-cv](https://github.com/nguyenvanhieu20-03/my-cv) |
 | SRC-01 | Đối chiếu HTML local với repository GitHub CV | Đạt cho `index.html` | Git blob SHA local và GitHub đều là `cb0cc75c3a1a0ea3fcff09a7cafa425997f4aab7` |
-| RUN-01 | Smoke test trang trên trình duyệt | Đạt: trang tải và hiển thị các khu vực chính | GitHub Pages CV; bản chụp viewport trong `docs/screenshots/` |
+| RUN-01 | Smoke test trang trên trình duyệt | Đạt: bản local tải và hiển thị các khu vực chính | `index.html` mở bằng Edge; ảnh viewport trong `docs/screenshots/` |
 | DOCKER-01 | Chạy website bằng Docker | Chưa thực hiện/không có kết quả ghi nhận | Chưa có |
-| UI-01 | Kiểm tra giao diện ở ba viewport | Đã chụp ở 390px, 820px và 1440px; chưa kiểm tra thiết bị thật | [Mobile](./screenshots/responsive-mobile.png), [Tablet](./screenshots/responsive-tablet.png), [Desktop](./screenshots/responsive-desktop.png) |
+| UI-01 | Kiểm tra giao diện ở ba viewport | Đã chụp 390×844, 820×1180 và 1440×1000; chưa kiểm tra thiết bị thật | [Mobile](./screenshots/responsive-mobile.png), [Tablet](./screenshots/responsive-tablet.png), [Desktop](./screenshots/responsive-desktop.png) |
 | PERF-01 | Đo hiệu năng cơ bản | Chưa thực hiện/không có kết quả ghi nhận | Chưa có |
 
 ## 6. Chấm điểm theo rubric A2.2
 
-Điểm dưới đây là **đánh giá tạm thời theo bằng chứng hiện có**, quy đổi trên tổng trọng số 100 điểm. Mục demo chưa được cung cấp nên tạm tính 0 điểm; điểm mục này cần cập nhật sau khi xem phần trình bày thực tế.
+Điểm dưới đây là **đánh giá tạm thời theo bằng chứng hiện có**, quy đổi trên tổng trọng số 100 điểm. Workspace đang trỏ tới repository `CV`, còn repository `my-cv` được cung cấp hiện rỗng. Điểm TC3 tạm cho một phần vì trang `/CV/` đang hoạt động và mã `index.html` khớp; nếu chỉ chấp nhận repository/URL `my-cv`, TC3 là **0/30** và tổng tương ứng là **33/100**. Mục demo chưa được cung cấp nên tạm tính 0 điểm; điểm mục này cần cập nhật sau khi xem phần trình bày thực tế.
 
 | Tiêu chí | Trọng số | Điểm tạm tính | Nhận xét và bằng chứng |
 |---|---:|---:|---|
-| **A2.2.TC1** — Repository rõ ràng, tối thiểu 3 commit, thông điệp hợp lý và thể hiện quá trình sửa lỗi | 20% | **10/20** | Cấu trúc source rõ ràng. Local có 3 commit nhưng GitHub `CV` hiện chỉ có 2 commit; commit thứ ba đang ở local và chưa đẩy lên remote. Các commit hiện có chủ yếu thêm nội dung/tài liệu, chưa thể hiện rõ một commit sửa lỗi và xác minh sau sửa. |
+| **A2.2.TC1** — Repository rõ ràng, tối thiểu 3 commit, thông điệp hợp lý và thể hiện quá trình sửa lỗi | 20% | **13/20** | Repository GitHub `CV` có 4 commit, đáp ứng số lượng tối thiểu; cấu trúc source rõ ràng. Tuy nhiên, thông điệp còn chung chung/lặp lại (`Initial`, `Add release note`, `Add report`) và lịch sử chưa thể hiện rõ một commit sửa lỗi cùng bước xác minh sau sửa. |
 | **A2.2.TC2** — README chuyên nghiệp, AI_LOG thể hiện trách nhiệm học thuật và đối chiếu thực tế | 15% | **10/15** | README hướng dẫn dự án và cách chạy khá đầy đủ; AI_LOG có ghi lịch sử thay đổi. Nhật ký chưa nêu rõ phần việc có AI hỗ trợ, phần người học tự thực hiện/kiểm chứng, nguồn tham khảo và kết quả đối chiếu thực tế. |
 | **A2.2.TC3** — GitHub Pages hoạt động, khớp repository và có minh chứng | 30% | **15/30** | `https://nguyenvanhieu20-03.github.io/CV/` tải được; SHA của `index.html` local khớp blob SHA trên GitHub. Tuy nhiên repository `my-cv` được cung cấp hiện rỗng và URL Pages `/my-cv/` trả về 404; cần thống nhất repo được chấm và URL triển khai. |
 | **A2.2.TC4** — Release note v1.0, thay đổi rõ, luồng end-to-end được kiểm chứng | 20% | **10/20** | Có release note v1.0.0 nêu chức năng và hạn chế. Đã xác minh luồng tải trang GitHub Pages và ghi nhận ảnh responsive, nhưng chưa có biên bản end-to-end đầy đủ cho các luồng chức năng, liên hệ và triển khai Docker. |
 | **A2.2.TC5** — Demo mạch lạc, giải thích quyết định kỹ thuật, giới hạn và trả lời đúng trọng tâm | 15% | **0/15 (tạm tính)** | Chưa có video, kịch bản demo hoặc buổi trình bày để đánh giá. Đây là điểm tạm theo minh chứng chưa được cung cấp, không phải kết luận về năng lực trình bày. |
-| **Tổng điểm tạm thời** | **100%** | **45/100** | Cần đẩy commit còn thiếu, làm rõ repo/URL Pages, bổ sung bằng chứng kiểm thử end-to-end và cung cấp demo để chấm lại. |
+| **Tổng điểm tạm thời** | **100%** | **48/100** | Cần làm rõ repo/URL Pages, cải thiện thông điệp và bằng chứng sửa lỗi, bổ sung kiểm thử end-to-end và cung cấp demo để chấm lại. |
 
 ### Ưu tiên cải thiện để nâng điểm
 
-1. Đẩy commit thứ ba lên đúng repository được chấm; bổ sung commit sửa lỗi thực tế với thông điệp mô tả thay đổi và cách xác minh, không tạo commit chỉ để đủ số lượng.
+1. Duy trì lịch sử commit có thông điệp cụ thể; bổ sung commit sửa lỗi thực tế với mô tả thay đổi và cách xác minh, không tạo commit chỉ để đủ số lượng.
 2. Chọn một repository làm nguồn chính. Nếu dùng `CV`, cập nhật liên kết bàn giao tới `https://nguyenvanhieu20-03.github.io/CV/`; nếu dùng `my-cv`, đẩy source và cấu hình GitHub Pages để URL tương ứng hoạt động.
 3. Bổ sung AI_LOG trung thực: nêu phần có AI hỗ trợ, phần người học tự làm/biên tập, những nội dung đã kiểm chứng và các nguồn tham khảo thực tế; không ghi nhận hoạt động chưa thực hiện.
 4. Ghi một kịch bản end-to-end có bước thao tác, kết quả mong đợi/thực tế và minh chứng; bao gồm mở trang, điều hướng, kiểm tra liên hệ và triển khai đã chọn.
