@@ -12,11 +12,11 @@
    ========================================================================== */
 :root {
   /* --- Bảng màu --- */
-  --color-primary: #e709e7;      /* xanh thương hiệu */
+  --color-primary: #2563eb;      /* xanh thương hiệu */
   --color-primary-dark: #1d4ed8;
   --color-accent: #7c3aed;       /* tím nhấn */
   --color-text: #1e293b;         /* chữ chính */
-  --color-text-soft: #64748b9d;    /* chữ phụ */
+  --color-text-soft: #64748b;    /* chữ phụ */
   --color-bg: #ffffff;           /* nền trang */
   --color-surface: #f8fafc;      /* nền vùng nhấn */
   --color-border: #e2e8f0;       /* viền */
@@ -53,7 +53,6 @@
 *::after {
   box-sizing: border-box;   /* width đã bao gồm padding + border → dễ tính toán */
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -115,7 +114,6 @@ ul {
   color: var(--color-text-soft);
   margin-bottom: var(--space-3);
 }
-
 /* ==========================================================================
    4. HEADER + NAV (FLEXBOX)
    Mobile: thương hiệu trên, menu xuống dòng và tự wrap → không tràn ngang.
@@ -171,7 +169,6 @@ ul {
   border-bottom: 2px solid transparent;
   transition: color 0.15s, border-color 0.15s;
 }
-
 .nav-list a:hover,
 .nav-list a:focus-visible {
   color: var(--color-primary);
@@ -258,7 +255,6 @@ ul {
   color: var(--color-primary);
 }
 .btn-outline:hover { background: var(--color-chip); }
-
 /* ==========================================================================
    6. KỸ NĂNG – chip tự wrap bằng flex
    ========================================================================== */
@@ -348,7 +344,6 @@ ul {
   font-size: var(--fs-sm);
   margin-top: var(--space-1);
 }
-
 /* ==========================================================================
    8. LIÊN HỆ
    ========================================================================== */
@@ -373,7 +368,6 @@ ul {
 
 .contact-list a { color: var(--color-primary); }
 .contact-list a:hover { text-decoration: underline; }
-
 /* ==========================================================================
    9. FOOTER
    ========================================================================== */
@@ -452,4 +446,45 @@ ul {
     transition: none !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Form liên hệ */
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+}
+
+.contact-form label {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-weight: 600;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.contact-form button {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    background: #2563eb;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
 }
